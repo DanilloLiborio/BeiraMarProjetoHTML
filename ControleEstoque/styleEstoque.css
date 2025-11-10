@@ -1,0 +1,321 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    /* Alterado para o fundo mais claro da Imagem 1 */
+    background-color: rgb(222, 236, 248); 
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-family: sans-serif; 
+    margin: 0; 
+}
+
+#sidebar {
+    /* Mantenho seu sidebar original */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #2148C0, #107CE0);
+    height: 100vh;
+    width: 250px; 
+    border-radius: 0px 19px 19px 0px; 
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+main {
+    flex: 1;
+    padding: 30px 40px;
+    margin-left: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    /* Removido margin-left: 20px; para evitar duplicação de espaço */
+    margin-left: 0;
+}
+
+/* --- Cabeçalho --- */
+.header {
+    width: 100%;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.titulo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.subheader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.link-historico {
+    /* Mantém a cor #107CE0 */
+    color: #107CE0;
+    text-decoration: none;
+    font-weight: bold;
+    border-left: 1px solid #ccc; 
+    padding-left: 10px;
+    line-height: 1; 
+}
+
+.acoes-header {
+    /* Ocupa o espaço onde ficariam os ícones na Imagem 1 */
+    visibility: hidden; 
+}
+
+/* --- Botão de Filtro --- */
+.botao-filtro {
+    display: flex;
+    order: 3; 
+    align-items: center;
+    gap: 5px;
+    /* Usa o azul mais escuro para o botão de filtro, como no Imagem 1 */
+    background-color: #1e459a; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    
+    background-image: none;
+    padding-right: 15px; 
+}
+
+.botao-filtro img {
+    display: none;
+}
+
+/* --- Barra de Controle (Header da Tabela) --- */
+.barra-controle {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80px 1fr 150px 150px 100px;
+    align-items: center;
+    /* Usa o azul mais escuro para o cabeçalho da tabela */
+    background-color: #107CE0; 
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.barra-controle span:nth-child(4) { 
+    text-align: center;
+}
+.barra-controle span:nth-child(5) { 
+    text-align: right;
+}
+
+/* --- Caixas de produtos (Linhas da Tabela) --- */
+.caixa-peixes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80px 1fr 150px 150px 100px;
+    align-items: center;
+    background-color: white; 
+    border: 1px solid #ddd;
+    border-top: none; 
+    border-radius: 0;
+    padding: 15px 20px; 
+    margin: 0; 
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.caixa-peixes:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+
+.caixa-peixes span:nth-child(1) { 
+    font-weight: bold;
+}
+
+.produto-imagem {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.caixa-peixes .imagem-peixe-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+/* Oculta o <span> do nome do peixe se o HTML original for mantido */
+.caixa-peixes > span:nth-child(4) { 
+    display: none; 
+}
+
+/* --- Status Dropdown --- */
+.status-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 110px; 
+    margin: 0 auto; 
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-weight: bold;
+    color: #333; 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+}
+
+.status-container::after {
+    content: '▼';
+    font-size: 0.5rem;
+    color: #333;
+    margin-left: 5px;
+    opacity: 0.7;
+}
+
+.status-icon {
+    display: none;
+}
+
+/* Cores de status */
+.status-container.producao {
+    background-color: #feebe8; 
+    color: #e53935;
+}
+.status-container.estoque {
+    background-color: #fff9e6; 
+    color: #ff9800;
+}
+.status-container.venda {
+    /* A cor de status "Venda" usa o azul principal como destaque */
+    background-color: #e8f5fb; 
+    color: #107CE0; 
+}
+
+/* Estoque Atual */
+.caixa-peixes > span:nth-child(5) { 
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Botão Exibir */
+.botao-exibir {
+    background: none;
+    border: none;
+    /* Mantém a cor #107CE0 */
+    color: #107CE0;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    text-align: right; 
+    margin-left: auto; 
+}
+
+/* --- Botão Adicionar --- */
+.adicionar-container {
+    margin: 30px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.botao-adicionar {
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Gradiente usando a cor #107CE0 como principal */
+    background: linear-gradient(to right, #1e459a, #107CE0); 
+    color: white;
+    border: none;
+    border-radius: 50px; 
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.botao-adicionar:hover {
+    background: linear-gradient(to right, #107CE0, #1e459a);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.adicionar-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+    margin-right: 0;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 900px) {
+    main {
+        padding: 20px 20px;
+    }
+
+    .barra-controle,
+    .caixa-peixes {
+        grid-template-columns: 50px 1fr 100px 100px 80px;
+    }
+}
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+    body {
+        justify-content: center;
+    }
+    .container {
+        align-items: center;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .barra-controle {
+        display: none;
+    }
+    
+    .caixa-peixes {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    .caixa-peixes span, .status-container, .botao-exibir {
+        width: 100%;
+        text-align: left;
+    }
+}
