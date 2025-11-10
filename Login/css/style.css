@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
     background-image: url("../Assets/imagemFundo.png");
     background-repeat: no-repeat;
@@ -10,8 +13,8 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius:1000px ;
-    margin-bottom: 35px;
-    box-shadow: 0px 4px 14px 4px #222222;
+    margin-bottom: 25px;
+    box-shadow: 0px 4px 14px 4px #22222250;
 
 }
 
@@ -19,6 +22,7 @@ body {
     display: grid;
     place-items: center;
     gap: 12px;
+    margin-bottom: 24px;
     margin-right: 8px;
     padding: 20px;
     justify-items: center;
@@ -26,16 +30,81 @@ body {
 }
 
 .input_login {
-    width: 250px;
+    width: 450px;
+    height: 45px;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 22px;
+    border-color: #fff;
+    background: none;
+    text-align: center;
+    color: #fff;
+}
+.input_login::placeholder {
+    color: #ffffffa5;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 .input_login2 {
     display: grid;
     place-items: center;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
     margin-right: 8px;
-    padding: 20px;
+    padding: 0px;
     justify-items: center;
 
+}
+
+#infos{
+    display: grid;
+    place-items: center;
+    gap: 12px;
+    margin-right: 8px;
+    padding: 0px;
+    justify-items: center;
+
+}
+
+#forgot {
+    transition: .2s;
+    display: grid;
+    place-items: center;
+    justify-items:center ;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+}
+
+#forgot:hover{
+    transition: .2s;
+    font-size: 18px;
+}
+
+#buttons_ {
+    display: grid;
+    justify-items: center;
+    padding-bottom: 25px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.button2 {
+    width: 450px;
+    height: 55px;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #2148C0;
+    transition: .5s;
+    border-radius: 24px;    
+}
+
+.button2:hover {
+    transition: .2s;
+    width: 460px;
+    height: 60px;
 }
