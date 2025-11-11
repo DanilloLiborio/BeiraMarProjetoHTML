@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Controle de Produtos</title>
   <link rel="stylesheet" href="styleEstoque.css" />
-
-  
 </head>
-<body>
 <body onload="carregarSidebar()">
   <!-- AQUI o sidebar será injetado -->
   <div id="sidebar-container"></div>
@@ -23,15 +20,16 @@
           <a href="#" class="link-historico">Histórico</a>
         </div>
       </div>
+      <nav>
+        <button class="botao-filtro">
+          <p>Filtrar</p>
+        </button>
 
-      <button class="botao-filtro">
-        <img src="assets/Filtrar.png" alt="Filtrar" />
-      </button>
-
-      <div class="acoes-header">
-        <button><img src="assets/iconeComprar.png" alt="Comprar" /></button>
-        <button><img src="assets/iconeVender.png" alt="Vender" /></button>
-      </div>
+        <div class="acoes-header">
+          <button><img src="/assets/iconeComprar.png" alt="Comprar" /></button>
+          <button><img src="/assets/iconeVender.png" alt="Vender" /></button>
+        </div>
+      </nav>
     </header>
 
     <!-- Barra de controle -->
@@ -42,13 +40,15 @@
       <span>Estoque Atual</span>
     </div>
 
+    
     <!-- Produtos -->
     <div class="caixa-peixes">
       <span>#001</span>
-      <img src="assets/tilapiaImagem.png" alt="Tilápia" class="produto-imagem" />
+      <img src="/assets/tilapiaImg.png" alt="Tilápia" class="produto-imagem" />
+      
       <span>Tilápia</span>
       <div class="status-container producao">
-        <span>Produção</span>
+        <button class="Class_Status"><span>Produção</span></button>
         <img src="assets/cliqueStatus.png" alt="Status" class="status-icon" />
       </div>
       <span>1.5 toneladas</span>
@@ -57,10 +57,10 @@
 
     <div class="caixa-peixes">
       <span>#002</span>
-      <img src="assets/pacuImagem.png" alt="Pacu" class="produto-imagem" />
+      <img src="/assets/pacuImg.png" alt="Pacu" class="produto-imagem" />
       <span>Pacu</span>
       <div class="status-container estoque">
-        <span>Estoque</span>
+         <button class="Class_Status"><span>Estoque</span></button>
         <img src="assets/cliqueStatus.png" alt="Status" class="status-icon" />
       </div>
       <span>50 caixas</span>
@@ -69,10 +69,10 @@
 
     <div class="caixa-peixes">
       <span>#003</span>
-      <img src="assets/tilapiaImagem.png" alt="Tilápia" class="produto-imagem" />
-      <span>Tilápia</span>
+      <img src="/assets/robaloImg.png" alt="Robalo" class="produto-imagem" />
+       <span>Robalo</span>
       <div class="status-container venda">
-        <span>Venda</span>
+         <button class="Class_Status"><span>Venda</span></button>
         <img src="assets/cliqueStatus.png" alt="Status" class="status-icon" />
       </div>
       <span>1.5 toneladas</span>
@@ -81,24 +81,37 @@
 
     <div class="caixa-peixes">
       <span>#004</span>
-      <img src="assets/robaloImagem.png" alt="Robalo" class="produto-imagem" />
-      <span>Robalo</span>
+      <img src="/assets/carpaImg.png" alt="Carpa" class="produto-imagem" />
+      <span>Carpa</span>
       <div class="status-container producao">
-        <span>Produção</span>
+        <button class="Class_Status"><span>Produção</span></button>
         <img src="assets/cliqueStatus.png" alt="Status" class="status-icon" />
       </div>
       <span>6 toneladas</span>
       <button class="botao-exibir">Exibir</button>
     </div>
 
+    <!-- Overlay do filtro -->
+    <div id="overlayFiltro" class="overlay">
+      <div class="filtro-opcoes">
+       <h2>Status Clicado: <span id="status-exibido"></span></h2>
+        <button class="btn-producao">Produção</button>
+        <button class="btn-estoque">Estoque</button> 
+        <button class="btn-venda">Venda</button>
+         <button class="btn-fechar" onclick="fecharFiltro()">Fechar</button>
+      </div>
+    </div>
+
     <!-- Botão adicionar -->
     <div class="adicionar-container">
       <button class="botao-adicionar">
-        <img src="assets/adicionar.png" alt="Adicionar" class="adicionar-icon" />
         <span>Adicionar novo produto</span>
       </button>
     </div>
   </div>
-  <script src="..\sidemenu\sideMenu.js"></script>
+
+  <script src="../sidemenu/sideMenu.js"></script>
+  <!-- CORRIJA AQUI O NOME DO ARQUIVO PARA "scriptControle.js" (ou o nome que você usar) -->
+  <script src="scriptControle.js"></script>
 </body>
 </html>
