@@ -5,6 +5,7 @@ body {
     background-image: url("../Assets/imagemFundo.png");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: "Montserrat", sans-serif;
 }
 
 #logoBeiraAvatar {
@@ -22,7 +23,7 @@ body {
     display: grid;
     place-items: center;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     margin-right: 8px;
     padding: 20px;
     justify-items: center;
@@ -57,7 +58,7 @@ body {
 
 }
 
-#infos{
+.infos{
     display: grid;
     place-items: center;
     gap: 12px;
@@ -85,7 +86,7 @@ body {
 #buttons_ {
     display: grid;
     justify-items: center;
-    padding-bottom: 25px;
+    padding-bottom: 22px;
 }
 
 .buttons {
@@ -97,7 +98,7 @@ body {
     height: 55px;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     color: #2148C0;
     transition: .5s;
     border-radius: 24px;    
@@ -107,4 +108,11 @@ body {
     transition: .2s;
     width: 460px;
     height: 60px;
+}
+
+
+.text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
 }
