@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styleEstoque.css" />
 </head>
 <body onload="carregarSidebar()">
-  <!-- AQUI o sidebar será injetado -->
+  <!-- Sidebar -->
   <div id="sidebar-container"></div>
   
   <div class="container">
@@ -21,10 +21,7 @@
         </div>
       </div>
       <nav>
-        <button class="botao-filtro">
-          <p>Filtrar</p>
-        </button>
-
+        <button class="botao-filtro"><p>Filtrar</p></button>
         <div class="acoes-header">
           <button><img src="/assets/iconeComprar.png" alt="Comprar" /></button>
           <button><img src="/assets/iconeVender.png" alt="Vender" /></button>
@@ -40,12 +37,10 @@
       <span>Estoque Atual</span>
     </div>
 
-    
     <!-- Produtos -->
     <div class="caixa-peixes">
       <span>#001</span>
       <img src="/assets/tilapiaImg.png" alt="Tilápia" class="produto-imagem" />
-      
       <span>Tilápia</span>
       <div class="status-container producao">
         <button class="Class_Status"><span>Produção</span></button>
@@ -60,7 +55,7 @@
       <img src="/assets/pacuImg.png" alt="Pacu" class="produto-imagem" />
       <span>Pacu</span>
       <div class="status-container estoque">
-         <button class="Class_Status"><span>Estoque</span></button>
+        <button class="Class_Status"><span>Estoque</span></button>
         <img src="assets/cliqueStatus.png" alt="Status" class="status-icon" />
       </div>
       <span>50 caixas</span>
@@ -70,9 +65,9 @@
     <div class="caixa-peixes">
       <span>#003</span>
       <img src="/assets/robaloImg.png" alt="Robalo" class="produto-imagem" />
-       <span>Robalo</span>
+      <span>Robalo</span>
       <div class="status-container venda">
-         <button class="Class_Status"><span>Venda</span></button>
+        <button class="Class_Status"><span>Venda</span></button>
         <img src="assets/cliqueStatus.png" alt="Status" class="status-icon" />
       </div>
       <span>1.5 toneladas</span>
@@ -91,14 +86,26 @@
       <button class="botao-exibir">Exibir</button>
     </div>
 
-    <!-- Overlay do filtro -->
+    <!-- Overlay de alteração de status -->
     <div id="overlayFiltro" class="overlay">
       <div class="filtro-opcoes">
-       <h2>Status Clicado: <span id="status-exibido"></span></h2>
+        <h2>Status Clicado: <span id="status-exibido"></span></h2>
         <button class="btn-producao">Produção</button>
-        <button class="btn-estoque">Estoque</button> 
+        <button class="btn-estoque">Estoque</button>
         <button class="btn-venda">Venda</button>
-         <button class="btn-fechar" onclick="fecharFiltro()">Fechar</button>
+        <button class="btn-fechar" onclick="fecharFiltro()">Fechar</button>
+      </div>
+    </div>
+
+    <!-- Overlay principal de filtro -->
+    <div id="overlayFiltroPrincipal" class="overlay">
+      <div class="filtro-principal-opcoes">
+        <h2>Filtrar por Status</h2>
+        <button class="filtro-btn" data-status="tudo">Mostrar Todos</button>
+        <button class="filtro-btn" data-status="producao">Produção</button>
+        <button class="filtro-btn" data-status="estoque">Estoque</button>
+        <button class="filtro-btn" data-status="venda">Venda</button>
+        <button class="filtro-btn fechar-filtro">Fechar</button>
       </div>
     </div>
 
@@ -110,8 +117,8 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="../sidemenu/sideMenu.js"></script>
-  <!-- CORRIJA AQUI O NOME DO ARQUIVO PARA "scriptControle.js" (ou o nome que você usar) -->
   <script src="scriptControle.js"></script>
 </body>
 </html>

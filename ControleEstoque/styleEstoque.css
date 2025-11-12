@@ -403,6 +403,64 @@ nav{
     filter: invert(1);
     margin-right: 0;
 }
+/* === Overlay Principal de Filtro === */
+#overlayFiltroPrincipal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  transition: background-color 0.3s ease;
+}
+
+.filtro-principal-opcoes {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  min-width: 280px;
+}
+
+#overlayFiltroPrincipal.active .filtro-principal-opcoes {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Botões do filtro principal */
+.filtro-principal-opcoes .filtro-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #107CE0;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  width: 80%;
+  text-align: center;
+}
+.filtro-principal-opcoes .filtro-btn:hover {
+  background-color: #0c62b3;
+  transform: translateY(-2px);
+}
+
+.filtro-principal-opcoes .fechar-filtro {
+  background-color: #e53935;
+}
+.filtro-principal-opcoes .fechar-filtro:hover {
+  background-color: #c62828;
+}
 
 /* --- Responsivo --- */
 @media (max-width: 900px) {
@@ -449,4 +507,5 @@ nav{
     /* styleEstoque.css */
 
 /* --- Overlay Geral --- */
+
 }

@@ -1,76 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('overlayFiltro');
-    if (!overlay) return;
+  const overlay = document.getElementById('overlayFiltro');
+  const statusButtons = document.querySelectorAll('.Class_Status');
+  const filterButtons = overlay.querySelectorAll('.btn-producao, .btn-estoque, .btn-venda');
+  let currentStatusButton = null;
 
-    const statusButtons = document.querySelectorAll('.Class_Status');
-    // Variável para armazenar o botão de status do produto que abriu o overlay
-    let currentStatusButton = null; 
+  // Função para fechar overlay
+  const closeOverlay = () => {
+    overlay.classList.remove('active');
+    setTimeout(() => overlay.style.display = 'none', 300);
+  };
 
-    // Seleciona os botões dentro do overlay
-    const filterButtons = overlay.querySelectorAll('.btn-producao, .btn-estoque, .btn-venda');
-
-    // Função para fechar o overlay (mantida da última interação)
-    const closeOverlay = () => {
-        overlay.classList.remove('active');
-        setTimeout(() => {
-            overlay.style.display = 'none';
-        }, 300);
-    };
-
-    // 1. Lógica para ABRIR o Overlay e salvar a referência do botão
-    statusButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Salva a referência do botão de status que foi clicado
-            currentStatusButton = button; 
-            
-            overlay.style.display = 'flex';
-            setTimeout(() => {
-                overlay.classList.add('active');
-            }, 10);
-        });
+  // Abrir overlay ao clicar em um status
+  statusButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      currentStatusButton = button;
+      overlay.style.display = 'flex';
+      setTimeout(() => overlay.classList.add('active'), 10);
     });
+  });
 
-    // 2. Lógica para MUDAR o Status ao clicar nos botões de filtro (DENTRO do overlay)
-    filterButtons.forEach(filterButton => {
-        filterButton.addEventListener('click', () => {
-            if (currentStatusButton) {
-                // Pega o novo status (texto do botão clicado no overlay)
-                const newStatus = filterButton.innerText.trim();
-                
-                // Encontra o <span> dentro do botão de status do produto
-                const statusSpan = currentStatusButton.querySelector('span');
-                
-                // Encontra o container pai (para mudar a cor)
-                const statusContainer = currentStatusButton.closest('.status-container');
-
-                if (statusSpan) {
-                    // Atualiza o texto do status do produto
-                    statusSpan.innerText = newStatus;
-                }
-                
-                // Remove as classes de cor antigas e adiciona a nova (Producao/Estoque/Venda)
-                if (statusContainer) {
-                    // Remove todas as classes de status de cor existentes
-                    statusContainer.classList.remove('producao', 'estoque', 'venda');
-
-                    // Adiciona a nova classe de cor (converte "Estoque" para "estoque", etc.)
-                    const newStatusClass = newStatus.toLowerCase();
-                    statusContainer.classList.add(newStatusClass);
-                }
-            }
-            
-            // Fecha o overlay após a mudança de status
-            closeOverlay(); 
-        });
-    });
-
-
-    // 3. Lógica para FECHAR o Overlay (fechar no fundo/esc)
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            closeOverlay();
+  // Alterar status dentro do overlay
+  filterButtons.forEach(filterButton => {
+    filterButton.addEventListener('click', () => {
+      if (currentStatusButton) {
+        const newStatus = filterButton.innerText.trim();
+        const statusSpan = currentStatusButton.querySelector('span');
+        const statusContainer = currentStatusButton.closest('.status-container');
+        if (statusSpan) statusSpan.innerText = newStatus;
+        if (statusContainer) {
+          statusContainer.classList.remove('producao', 'estoque', 'venda');
+          statusContainer.classList.add(newStatus.toLowerCase());
         }
+      }
+      closeOverlay();
     });
-    
-    // (O botão .btn-fechar foi removido do HTML, mas a lógica de clique fora fecha)
+  });
+
+  // Fechar overlay clicando fora
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeOverlay();
+  });
+
+  // === Overlay Principal (Botão Filtrar) ===
+  const overlayFiltroPrincipal = document.getElementById('overlayFiltroPrincipal');
+  const botaoFiltro = document.querySelector('.botao-filtro');
+  const botoesFiltro = document.querySelectorAll('.filtro-principal-opcoes .filtro-btn');
+  const caixasPeixes = document.querySelectorAll('.caixa-peixes');
+
+  botaoFiltro.addEventListener('click', () => {
+    overlayFiltroPrincipal.style.display = 'flex';
+    setTimeout(() => overlayFiltroPrincipal.classList.add('active'), 10);
+  });
+
+  overlayFiltroPrincipal.addEventListener('click', (e) => {
+    if (e.target === overlayFiltroPrincipal) fecharOverlayFiltroPrincipal();
+  });
+
+  function fecharOverlayFiltroPrincipal() {
+    overlayFiltroPrincipal.classList.remove('active');
+    setTimeout(() => overlayFiltroPrincipal.style.display = 'none', 300);
+  }
+
+  botoesFiltro.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const statusSelecionado = btn.dataset.status;
+      caixasPeixes.forEach(caixa => {
+        const statusContainer = caixa.querySelector('.status-container');
+        if (statusSelecionado === 'tudo' ||
+            (statusContainer && statusContainer.classList.contains(statusSelecionado))) {
+          caixa.style.display = 'grid';
+        } else {
+          caixa.style.display = 'none';
+        }
+      });
+      if (!btn.classList.contains('fechar-filtro')) fecharOverlayFiltroPrincipal();
+    });
+  });
 });
