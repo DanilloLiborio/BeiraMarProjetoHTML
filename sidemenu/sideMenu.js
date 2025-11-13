@@ -158,7 +158,7 @@ main {
   <nav id="sidebar">
     <div id="sidebar_content">
       <div id="user">
-        <img src="./sidemenu/src/assets/images.jpg" id="user_avatar" alt="Avatar">
+        <img src="/assets/logo.png" id="user_avatar" alt="Avatar">
         <p id="user_info">
           <span class="item-description"></span>
         </p>

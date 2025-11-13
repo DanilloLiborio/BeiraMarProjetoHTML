@@ -8,6 +8,10 @@ body {
     font-family: sans-serif; 
     margin: 0; 
 }
+.caixa-peixes button{
+    background-color: transparent;
+    border: none;
+}
 
 #sidebar {
     /* Mantenho seu sidebar original */
@@ -28,16 +32,35 @@ main {
     padding: 30px 40px;
     margin-left: 0;
 }
+.overlay {
+  display: none; /* inicia escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center; /* se usar flex */
+  align-items: center;     /* se usar flex */
+  z-index: 1000;           /* para ficar acima de tudo */
+}
 
+/* conteúdo do overlay */
+.filtro-opcoes {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+}
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-bottom: 20px;
     /* Removido margin-left: 20px; para evitar duplicação de espaço */
-    margin-left: 0;
+     margin-left: 30px;
 }
 
 /* --- Cabeçalho --- */
@@ -53,7 +76,8 @@ main {
 .titulo {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #333;
+    color:#107CE0;
+;
     margin: 0;
 }
 
@@ -76,34 +100,138 @@ main {
     line-height: 1; 
 }
 
-.acoes-header {
-    /* Ocupa o espaço onde ficariam os ícones na Imagem 1 */
-    visibility: hidden; 
+.acoes-header button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+nav{ 
+    display: flex;
+     gap: 15px; 
+  margin-right: 10px;
+  align-items: center;
 }
 
 /* --- Botão de Filtro --- */
 .botao-filtro {
-    display: flex;
-    order: 3; 
-    align-items: center;
-    gap: 5px;
-    /* Usa o azul mais escuro para o botão de filtro, como no Imagem 1 */
-    background-color: #1e459a; 
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    
-    background-image: none;
-    padding-right: 15px; 
+   background-color: #107CE0;
+   width: 100px;
+   height: 30px;
+   border-radius: 10px;
+   border-color: transparent;
+   align-items: center;
+   
+
 }
 
-.botao-filtro img {
-    display: none;
+.overlay {
+    display: none; /* Inicia escondido */
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo mais escuro */
+    display: flex; /* Para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    transition: background-color 0.3s ease; /* Transição suave */
 }
+
+/* --- Conteúdo do Overlay (a caixa branca) --- */
+.filtro-opcoes {
+    background-color: white;
+    padding: 20px; /* Padding ajustado */
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra */
+    min-width: 250px; /* Largura mínima ajustada para caber os botões */
+    max-width: 90%; /* Limita a largura para telas grandes */
+    display: flex; /* Flexbox para organizar os botões */
+    flex-direction: column; /* Botões em coluna */
+    gap: 15px; /* Espaço entre os botões */
+    transform: translateY(-20px); /* Transição de entrada */
+    opacity: 0; /* Começa invisível */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transição */
+    position: relative; /* Para posicionar o "FiltroOpcoes" */
+}
+
+/* Título "FiltroOpcoes" fora da caixa branca */
+.filtro-opcoes::before {
+    content: "FiltroOpcoes"; /* Texto "FiltroOpcoes" */
+    position: absolute;
+    top: -40px; /* Posição acima da caixa */
+    left: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white; /* Cor do texto */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+}
+
+/* Ocultar o H2 e o Span de status dentro do overlay, se existirem no HTML */
+.filtro-opcoes h2,
+.filtro-opcoes #status-exibido {
+    display: none; /* Esconde o título e o span de status */
+}
+
+
+/* Quando o overlay está visível, o conteúdo também aparece */
+.overlay.active .filtro-opcoes {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* --- Estilos para os Botões dentro do Overlay --- */
+.filtro-opcoes button {
+    padding: 15px 25px; /* Mais padding para botões maiores */
+    border: none;
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 1.1rem; /* Fonte maior */
+    font-weight: bold;
+    color: white; /* Cor do texto dos botões */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra nos botões */
+}
+
+/* Cores específicas dos botões, como na imagem */
+.btn-producao {
+    background-color: #e53935; /* Vermelho */
+}
+.btn-producao:hover {
+    background-color: #c62828; /* Vermelho mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-estoque {
+    background-color: #c0ca33; /* Amarelo esverdeado */
+}
+.btn-estoque:hover {
+    background-color: #9e9d24; /* Amarelo esverdeado mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-venda {
+    background-color: #2196f3; /* Azul */
+}
+.btn-venda:hover {
+    background-color: #1976d2; /* Azul mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ocultar o botão de fechar, se ele não for mais necessário na nova interface */
+.btn-fechar {
+    display: none; /* Esconde o botão de fechar */
+}
+
+
 
 /* --- Barra de Controle (Header da Tabela) --- */
 .barra-controle {
@@ -275,6 +403,64 @@ main {
     filter: invert(1);
     margin-right: 0;
 }
+/* === Overlay Principal de Filtro === */
+#overlayFiltroPrincipal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  transition: background-color 0.3s ease;
+}
+
+.filtro-principal-opcoes {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  min-width: 280px;
+}
+
+#overlayFiltroPrincipal.active .filtro-principal-opcoes {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Botões do filtro principal */
+.filtro-principal-opcoes .filtro-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #107CE0;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  width: 80%;
+  text-align: center;
+}
+.filtro-principal-opcoes .filtro-btn:hover {
+  background-color: #0c62b3;
+  transform: translateY(-2px);
+}
+
+.filtro-principal-opcoes .fechar-filtro {
+  background-color: #e53935;
+}
+.filtro-principal-opcoes .fechar-filtro:hover {
+  background-color: #c62828;
+}
 
 /* --- Responsivo --- */
 @media (max-width: 900px) {
@@ -318,4 +504,8 @@ main {
         width: 100%;
         text-align: left;
     }
+    /* styleEstoque.css */
+
+/* --- Overlay Geral --- */
+
 }
