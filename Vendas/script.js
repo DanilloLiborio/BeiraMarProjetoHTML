@@ -1,0 +1,217 @@
+function carregarSidebar() {
+  // ====== CSS do sidebar (injetado dinamicamente) ======
+  const style = document.createElement("style");
+  style.textContent = `
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: rgb(222, 236, 248);
+}
+
+main {
+  padding: 20px;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #2148C0, #107CE0);
+  height: 100vh;
+  width: 25vh;
+  border-radius: 0px 19px 19px 0px;
+  position: relative;
+}
+
+#sidebar_content {
+  padding: 0px;
+}
+
+#user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  margin-right: 8px;
+  padding: 20px;
+}
+
+#user_avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 80px;
+  margin-bottom: 35px;
+}
+
+#user_infos {
+  display: flex;
+  flex-direction: column;
+}
+
+#side_items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.side_item {
+  border-radius: 50px 0px 0px 50px;
+  padding: 14px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.side_item.active {
+  background-color: #ffffff;
+  border-radius: 50px 0px 0px 50px;
+}
+
+.side_item.active a {
+  color: #107CE0;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.side_item:hover:not(.active),
+#logout_btn:hover {
+  background: #489ff1;
+}
+
+.side_item a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.side_item a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+#logout {
+  border-top: 1px solid white;
+  padding: 12px;
+}
+
+#logout_btn {
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 10px;
+  text-align: start;
+  cursor: pointer;
+  background-color: transparent;
+  transition: .5s;
+}
+
+#sidebar.open-sidebar {
+  min-height: 15%;
+}
+
+.subtitle {
+  color: #515151;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+.text {
+  color: #385C92;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 450;
+  font-size: 45px;
+}
+
+.content {
+  display: none;
+}
+
+.content.show {
+  display: flex;
+}
+`;
+  document.head.appendChild(style);
+
+  // ====== HTML do sidebar ======
+  const sidebarHTML = `
+  <nav id="sidebar">
+    <div id="sidebar_content">
+      <div id="user">
+        <img src="/assets/logo.png" id="user_avatar" alt="Avatar">
+        <p id="user_info">
+          <span class="item-description"></span>
+        </p>
+      </div>
+
+      <ul id="side_items">
+        <li class="side_item active">
+          <a href="#">
+            <i class="fa-solid fa-fish"></i>
+            <span class="item_description">Controle</span>
+          </a>
+        </li>
+        <li class="side_item">
+          <a href="#">
+            <i class="fa-solid fa-truck"></i>
+            <span class="item_description">Pedidos</span>
+          </a>
+        </li>
+        <li class="side_item">
+          <a href="#">
+            <i class="fa-solid fa-comment-dollar"></i>
+            <span class="item_description">Vendas</span>
+          </a>
+        </li>
+        <li class="side_item">
+          <a href="#">
+            <i class="fa-solid fa-clipboard"></i>
+            <span class="item_description">Relatório</span>
+          </a>
+        </li>
+        <li class="side_item">
+          <a href="#">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span class="item_description">Produção</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="logout">
+      <button id="logout_btn" onclick="IrLogin()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span class="item_description">Logout</span>
+      </button>
+    </div>
+  </nav>
+  `;
+
+  // ====== Insere no container ======
+  const container = document.getElementById("sidebar-container");
+  if (container) {
+    container.innerHTML = sidebarHTML;
+  } else {
+    console.warn("Elemento #sidebar-container não encontrado!");
+  }
+}

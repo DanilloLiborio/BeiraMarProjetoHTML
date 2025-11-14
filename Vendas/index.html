@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styleVendas.css">
+  <title>BEIRA MAR PESCADOS</title>
+</head>
+
+<body>
+  <nav id="sidebar">
+    <div id="sidebar_content">
+      <div id="user">
+        <img src="img/images.jpg" id="user_avatar" alt="Avatar">
+        <p id="user_info">
+          <span class="item-description"></span>
+        </p>
+      </div>
+
+      <ul id="side_items">
+        <li class="side_item" alt="active">
+          <a class="tab-btn" href="/ControleEstoque/controleEstoque.html">
+            <i class="fa-solid fa-fish"></i>
+            <span class="item_description">
+              Controle
+            </span>
+          </a>
+        </li>
+
+        <li class="side_item" alt="inactive">
+          <a class="tab-btn" href="#">
+            <i class="fa-solid fa-truck"></i>
+            <span class="item_description">
+              Pedidos
+            </span>
+          </a>
+        </li>
+
+        <li class="side_item" alt="inactive">
+          <a class="tab-btn" href="/Vendas/index.html">
+            <i class="fa-solid fa-comment-dollar"></i>
+            <span class="item_description">
+              Vendas
+            </span>
+          </a>
+        </li>
+
+        <li class="side_item" alt="inactive">
+          <a class="tab-btn" href="#">
+            <i class="fa-solid fa-clipboard"></i>
+            <span class="item_description">
+              Relatório
+            </span>
+          </a>
+        </li>
+
+        <li class="side_item">
+          <a class="tab-btn" href="#" alt="inactive">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span class="item_description">
+              Produção
+            </span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+    <div id="logout">
+      <button id="logout_btn" onclick="IrLogin()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span class="item_description">
+          <a href="login.html"></a>
+          logout
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="tab-content">
+      <div class="content show" id="Controle">
+        <div class="infos">
+          <h1 class="text">
+            MINHAS VENDAS
+          </h1>
+          <p class="subtitle">Vendas elaboradas e preparadas</p>
+        </div>
+      </div>
+      <div class="content" id="Pedidos">
+        <div class="infos">
+          <h1 class="text">
+            Pedidos
+          </h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+      <div class="content" id="Vendas">
+        <div class="infos">
+          <h1 class="text">
+            Vendas
+          </h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+      <div class="content" id="Relatório">
+        <div class="infos">
+          <h1 class="text">
+            Relatório
+          </h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+      <div class="content" id="Produção">
+        <div class="infos">
+          <h1 class="text">
+            Produção
+          </h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  
+  <div class="quadrado">
+    <div class="container-texto">
+  <h2 class="titulo">Gbarbosa</h2>
+  <p class="textolateral">Data prevista: 12/11/2025</p>
+  <p class="paragrafo">Total: 1.5 Toneladas</p>
+</div>
+  <img src="/Vendas/img/Ellipse 16.png" class="elipsegbarbosa" alt="empresafoto">
+<a href="/Vendas/pagina.html">
+  <button class="img-button">
+    <img src="/Vendas/img/btn enviar.png" alt="Botão">
+  </button>
+</a>
+</a>
+  <img src="/Vendas/img/porcetagem.png" class="btnporcentagem" alt="botaoporcentagem">
+  <div class="linha"></div>
+
+</div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
