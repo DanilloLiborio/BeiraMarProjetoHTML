@@ -166,13 +166,13 @@ main {
 
       <ul id="side_items">
         <li class="side_item active">
-          <a href="#">
+          <a href="#"onclick="irCtrl()" >
             <i class="fa-solid fa-fish"></i>
             <span class="item_description">Controle</span>
           </a>
         </li>
         <li class="side_item">
-          <a href="#">
+          <a href="#" onclick="irPdd()">
             <i class="fa-solid fa-truck"></i>
             <span class="item_description">Pedidos</span>
           </a>
