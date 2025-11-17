@@ -166,7 +166,7 @@ main {
 
       <ul id="side_items">
         <li class="side_item active">
-          <a href="#"onclick="irCtrl()" >
+          <a href="#" onclick="irCtrl()">
             <i class="fa-solid fa-fish"></i>
             <span class="item_description">Controle</span>
           </a>
@@ -178,7 +178,7 @@ main {
           </a>
         </li>
         <li class="side_item">
-          <a href="#">
+          <a href="#" onclick="irVendas()">
             <i class="fa-solid fa-comment-dollar"></i>
             <span class="item_description">Vendas</span>
           </a>
@@ -216,14 +216,19 @@ main {
   }
 }
 
-function IrLogin(){
-    window.location.href = "../Login/login.html";
+// ====== FUNÇÕES DE NAVEGAÇÃO ======
+function IrLogin() {
+  window.location.href = "../Login/login.html";
 }
 
 function irCtrl() {
-    window.location.href = "../ControleEstoque/controleEstoque.html"
+  window.location.href = "../ControleEstoque/controleEstoque.html";
 }
 
-function irPdd(){
-    window.location.href = "../rastreamento/rastreamento.html"
+function irPdd() {
+  window.location.href = "../rastreamento/rastreamento.html";
+}
+
+function irVendas() {
+  window.location.href = "../vendas/vendas.html";
 }
