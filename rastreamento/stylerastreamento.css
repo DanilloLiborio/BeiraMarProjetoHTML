@@ -57,7 +57,7 @@ header {
     background-color: white;
     border-radius: 15px;
     padding: 24px;
-    height: 545px;
+    height: 580px;
 }
 
 hr {
@@ -65,7 +65,149 @@ hr {
     
 }
 
+.rastreamento {
+    display: flex;
+    align-self: center;
+}
+
 .containerhr {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.card1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    height: 30px;
+    background-color: #107CE0;
+    border-radius: 35px 0px 0px 35px;
+}
+
+.card2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    height: 30px;
+    background-color: #107CE0;
+}
+
+.card3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    height: 30px;
+    background-color: #107CE0;
+    border-radius: 0px 35px 35px 0px;
+}
+
+.cardp {
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.timeline {
+    position: relative; /* Pai para posicionar a linha vertical */
+    padding-left: 20px;
+}
+
+/* LINHA VERTICAL (criada com o pseudo-elemento ::before) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 4px; /* Ajusta a posição da linha vertical */
+    width: 2px;
+    height: 100%;
+    background-color: #007bff;
+}
+
+.timeline-event {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* DOTS (CÍRCULOS) */
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+    transform: translateX(-50%); /* Centraliza o ponto na linha */
+    z-index: 1; /* Garante que fique acima da linha */
+}
+
+.timeline-content {
+    margin-left: 20px; /* Afasta o conteúdo do dot e da linha */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #343a40;
+}
+
+.data-local {
+    font-size: 13px;
+    color: #6c757d;
+    margin: 0;
+}
+
+.separador {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.estimativa {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 30px;
+    color: #6c757d;
+    display: flex;
+    justify-content: left;
+    float: left; /* Move o elemento o máximo possível para a esquerda */
+    clear: both;
+}
+
+/* botões*/
+.btn {
+    transition: .3s;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    height: 50px;
+    cursor: pointer;
+    background-color: #107CE0;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+}
+
+.btn:hover {
+    transition: .3s;
+    box-shadow: 4px 4px 12px 0px #343a40;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between; /* Coloca um item em cada ponta */
+    align-items: center;
 }

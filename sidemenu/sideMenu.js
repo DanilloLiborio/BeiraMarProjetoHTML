@@ -215,3 +215,15 @@ main {
     console.warn("Elemento #sidebar-container não encontrado!");
   }
 }
+
+function IrLogin(){
+    window.location.href = "../Login/login.html";
+}
+
+function irCtrl() {
+    window.location.href = "../ControleEstoque/controleEstoque.html"
+}
+
+function irPdd(){
+    window.location.href = "../rastreamento/rastreamento.html"
+}
