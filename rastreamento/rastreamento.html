@@ -15,35 +15,98 @@
     <!-- Cabeçalho -->
     <header class="header">
       <div>
-        <h1 class="titulo">Gerenciamento de pedidos</h1>
+        <h1 class="titulo">Rastreamento de pedido</h1>
         <div class="subheader">
-          <span id=>Administração de pedidos feitos na empresa</span>
+          <span id=></span>
         </div>
       </div>
     </header>
 
     <!-- Tela de rastreamento -->
-    <div class="quadrado">
-      <div class="title">
-        <p>Rastreamento de pedidos</p>
+    <div class="rastreamento">
+      <div class="quadrado">
+      
+      <!--Status da entrega-->
+      <div class="cards">
+        <div class="card1">
+          <p class="cardp">Em preparo</p>
+        </div>
+        <div class="card2">
+          <p class="cardp">A caminho</p>
+        </div>
+        <div class="card3">
+          <p class="cardp">Pedido entregue</p>
+        </div>
+        
       </div>
       <div class="containerhr">
         <hr>
       </div>
-      
+      <!--Timeline-->
+      <div class="timeline">
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pedido Recebido, em preparação para envio</h3>
+                    <p class="data-local">09 - 07 - 2025 ( 09:00 AM)</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pedido em Rota de Entrega</h3>
+                    <p class="data-local">Manaus (AM) <span class="separador">—</span> Porto Velho (RO)</p>
+                    <p class="data-local">09 - 07 - 2025 ( 14:00 PM)</p>
+                </div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pedido chegou no Centro de Distribuição de Porto Velho - (RO)</h3>
+                    <p class="data-local">11 - 07 - 2025 ( 10:00 AM)</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pedido em Rota de Entrega</h3>
+                    <p class="data-local">Porto Velho (RO) <span class="separador">—</span> Aracaju (SE)</p>
+                    <p class="data-local">11 - 07 - 2025 ( 15:00 PM)</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pedido a caminho da Indústria Beira Mar</h3>
+                    <p class="data-local">15 - 07 - 2025 ( 09:00 PM)</p>
+                </div>
+            </div>
+
+            <div class="timeline-event">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pedido Entregue</h3>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+          <button class="btn" id="back">
+            Voltar
+          </button>
+          <button class="btn">
+            Confirmar entrega
+          </button>
+          <p class="estimativa">Estimativa de entrega: <strong>15/07/25 11:00</strong></p>
+        </div>
+        
+        
     </div>
-
-    <!-- Produtos -->
+    </div>
     
-    <!-- Overlay de alteração de status -->
-    
-
-    <!-- Overlay principal de filtro -->
-    
-
-    <!-- Botão adicionar -->
-    
-
   <!-- Scripts -->
   <script src="../sidemenu/sideMenu.js"></script>
   <script src="scriptControle.js"></script>
