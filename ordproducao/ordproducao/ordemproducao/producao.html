@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordem De Produção</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <body onload="carregarSidebar()">
+  <!-- AQUI o sidebar será injetado -->
+  <div id="sidebar-container"></div>
+  <div class="sidebar">
+    <div class="Voltar">
+      <img src="Assets/voltar.png" alt="Voltar">
+    </div>
+    <div class="sidebar-logo">
+      <img src="Assets/logobeira.png" /> 
+    </div>
+    <div class="menu-item">
+  <img src="Assets/Group.png" alt="Controle" class="menu-icon">
+  Controle
+</div>
+<div class="menu-item">
+  <img src="Assets/Vector.png" alt="Pedidos" class="menu-icon">
+  Pedidos
+</div>
+<div class="menu-item">
+  <img src="Assets/Vector (1).png" alt="Vendas" class="menu-icon">
+  Vendas
+</div>
+<div class="menu-item">
+  <img src="Assets/Vector (2).png" alt="Relatório" class="menu-icon">
+  Relatório
+</div>
+<div class="menu-item menu-active">
+  <img src="Assets/Vector (3).png" alt="Produção" class="menu-icon">
+  Produção
+</div>
+
+  </div>
+
+  <div class="content">
+    <h1 class="Producao">Produção</h1>
+    <p><i>Peixes na produção</i></p>
+
+    <button class="filter-btn"><strong>🔽 FILTRAR</strong></button>
+
+    <!-- HIGIENIZAÇÃO -->
+   <div class="section">
+  <div class="section-title">Higienização</div>
+
+  <div class="card-container">
+    <div class="card">
+      <strong>#001</strong>
+      <img src="Assets/tilapia.png" />
+      <span>Tilápia</span>
+
+      <div class="status">
+        <img src="Assets/Vector (4).png" class="status-icon">
+        <span> Iniciado às 15h</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>#002</strong>
+      <img src="Assets/pacu.png" />
+      <span>Pacu</span>
+
+      <div class="status">
+        <img src="Assets/Vector (5).png" class="status-icon">
+        <span> Concluído</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- PROCESSAMENTO -->
+    <div class="section">
+  <div class="section-title">Processamento</div>
+
+  <div class="card-container">
+    <div class="card">
+      <strong>#005</strong>
+      <img src="Assets/tilapia.png" />
+      <span>Salmão</span>
+
+      <div class="status">
+        <img src="Assets/Vector (4).png" class="status-icon">
+        <span> Iniciado às 15h</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>#007</strong>
+      <img src="Assets/pacu.png" />
+      <span>Pacu</span>
+
+      <div class="status">
+        <img src="Assets/Vector (5).png" class="status-icon">
+        <span> Concluído</span>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="adicionar-container">
+      <button class="botao-adicionar">
+        <img src="Assets/Vector (6).png" alt="Adicionar" class="adicionar-icon" />
+        <span>Adicionar novo produto</span>
+      </button>
+    </div>
+  <script src="..\sidemenu\sideMenu.js"></script>
+</body>
+</html>

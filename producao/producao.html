@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordem De Produção</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body onload="carregarSidebar()">
+  <!-- Sidebar -->
+  <div id="sidebar-container"></div>
+
+  <div class="content">
+    <h1 class="Producao">Produção</h1>
+    <p><i>Peixes na produção</i></p>
+
+    <button class="filter-btn"><strong>🔽 FILTRAR</strong></button>
+
+    <!-- HIGIENIZAÇÃO -->
+   <div class="section">
+  <div class="section-title">Higienização</div>
+
+  <div class="card-container">
+    <div class="card">
+      <strong>#001</strong>
+      <img src="Assets/tilapia.png" />
+      <span>Tilápia</span>
+
+      <div class="status">
+        <img src="Assets/Vector (4).png" class="status-icon">
+        <span> Iniciado às 15h</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>#002</strong>
+      <img src="Assets/pacu.png" />
+      <span>Pacu</span>
+
+      <div class="status">
+        <img src="Assets/Vector (5).png" class="status-icon">
+        <span> Concluído</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- PROCESSAMENTO -->
+    <div class="section">
+  <div class="section-title">Processamento</div>
+
+  <div class="card-container">
+    <div class="card">
+      <strong>#005</strong>
+      <img src="Assets/tilapia.png" />
+      <span>Salmão</span>
+
+      <div class="status">
+        <img src="Assets/Vector (4).png" class="status-icon">
+        <span> Iniciado às 15h</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>#007</strong>
+      <img src="Assets/pacu.png" />
+      <span>Pacu</span>
+
+      <div class="status">
+        <img src="Assets/Vector (5).png" class="status-icon">
+        <span> Concluído</span>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="adicionar-container">
+     <button class="botao-adicionar" onclick="abrirModalAdicionar()">  <img src="Assets/Vector (6).png" alt="Adicionar" class="adicionar-icon" />
+     <span>Adicionar novo produto</span>
+     </button>
+</div>
+  <script src="../sidemenu/sideMenu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

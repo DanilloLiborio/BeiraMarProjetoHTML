@@ -1,0 +1,261 @@
+/* ========================================================= */
+/* 1. LAYOUT PRINCIPAL (BODY & SIDEBAR) */
+/* ========================================================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  display: flex; /* CHAVE: Garante que a sidebar e o conteúdo fiquem lado a lado */
+  min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+}
+
+/* Estilo para o container onde o JS injeta a sidebar */
+#sidebar-container {
+  width: 220px;
+  flex-shrink: 0; /* Impede que a sidebar encolha */
+  /* O fundo real é injetado pelo JS, mas mantemos a largura aqui */
+}
+
+.content {
+  flex-grow: 1; /* Ocupa todo o espaço restante horizontalmente */
+  padding: 20px 40px; /* Adicionado o padding ao conteúdo */
+}
+
+h1 {
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
+.Producao {
+  color: #0077ff;
+}
+
+.filter-btn {
+  padding: 10px 15px;
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* ========================================================= */
+/* 2. ESTILOS DO CONTEÚDO (SECTIONS, CARDS) */
+/* ========================================================= */
+
+.section {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-title {
+  width: 100%;
+  background: #0077ff;
+  color: #fff;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  padding: 15px 0;
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 210px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 5px;
+}
+
+/* ========================================================= */
+/* 3. BOTÃO ADICIONAR (AJUSTADO PARA O FLUXO NORMAL) */
+/* ========================================================= */
+.adicionar-container {
+    /* Novo container para centralizar o botão no fluxo */
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: 30px; 
+}
+
+.botao-adicionar {
+    /* Removido position: absolute */
+    background: linear-gradient(to right, #1e459a, #107CE0); 
+    color: white;
+    border: none;
+    border-radius: 60px; 
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.botao-adicionar img {
+  width: 12px;
+  height: 12px;
+}
+
+/* ========================================================= */
+/* 4. MODAL PRINCIPAL (ADICIONAR) */
+/* ========================================================= */
+.comp_esto_modal-container {
+    display: none; /* Inicia escondido, mostrado com JS */
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 998; /* Abaixo do modal de seleção, mas acima do conteúdo */
+}
+
+.comp_esto_modal {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    width: 800px;
+    box-shadow: 0 7px 15px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.titulo-adicionar {
+  font-style: italic;
+  color: #1e4b85;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Estilos de Tabela no Modal */
+.tabela-cabecalho {
+  font-size: larger;
+  display: grid;
+  grid-template-columns: 5fr 5fr 6fr 5fr;
+  background-color: #0d6efd;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+.tabela-corpo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 20px;
+  margin-top: 8px;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.tabela-corpo input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background:white;
+}
+
+.salvar-btn {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  margin-top: 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 3px 0px rgba(0,0,0,0.2);
+}
+
+.salvar-btn:hover {
+  background-color: #0b5ed7;
+}
+
+/* ========================================================= */
+/* 5. MODAIS DE SELEÇÃO (PRODUTO, CLIENTE, ETAPA) */
+/* ========================================================= */
+
+.selecionarNomes {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none; /* Inicia escondido, mostrado com JS */
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Mais alto que o modal principal */
+}
+
+.selecionarNomes-content {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.25);
+  animation: abrir 0.25s ease-out;
+}
+
+@keyframes abrir {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.itemmodal {
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  margin: 8px 0;
+  padding: 20px;
+  padding-left: 40px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.itemmodal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}

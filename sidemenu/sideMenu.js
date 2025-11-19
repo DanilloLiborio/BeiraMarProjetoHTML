@@ -38,8 +38,7 @@ function carregarSidebar() {
       #sidebar.open-sidebar { min-height:15%; }
       .subtitle { color:#515151; font-family:"Roboto",sans-serif; font-size:15px; }
       .text { color:#385C92; font-family:"Roboto",sans-serif; font-style:italic; font-weight:450; font-size:45px; }
-      .content { display:none; }
-      .content.show { display:flex; }
+      
     `;
     document.head.appendChild(style);
   }
