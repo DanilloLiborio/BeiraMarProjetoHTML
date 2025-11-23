@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Controle de Produtos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styleEstoque.css" />
 </head>
 <body onload="carregarSidebar()">
@@ -23,10 +24,158 @@
       <nav>
         <button class="botao-filtro"><p>Filtrar</p></button>
         <div class="acoes-header">
-          <button><img src="/assets/iconeComprar.png" alt="Comprar" /></button>
-          <button><img src="/assets/iconeVender.png" alt="Vender" /></button>
+          <button id="abrirCompraBtn" onclick="abrirModal(modais.comprar)"><img src="/assets/iconeComprar.png" alt="Comprar" /></button>
+          <button id="abrirVendaBtn" onclick="abrirModal(modais.vender)"><img src="/assets/iconeVender.png" alt="Vender" /></button>
         </div>
+
       </nav>
+
+      
+
+     <!-- MODAL COMPRAR -->
+      <div id="comp_esto_modal-container" class="comp_esto_modal-container">
+        <div class="comp_esto_modal">
+          <h1 class="titulo-compra">COMPRAR</h1>
+
+          <!-- Cabeçalho do modal comprar-->
+          <div class="tabela-cabecalho">
+            <span>ID</span>
+            <span>Produto</span>
+            <span>Fornecedor</span>
+            <span>Estoque atual</span>
+          </div>
+
+          <!-- Corpo do modal comprar -->
+          <div class="tabela-corpo">
+            <span>ID</span>
+            
+            <button  class="btnEscolher" onclick="abrirModal(modais.produtos); abrirModalProdutos()">produtos</button>
+            <button  class="btnEscolher" onclick="abrirModal(modais.fornecedores); abrirModalFornecedor() ">fornecedores</button>
+            <button  class="btnEscolher" onclick="abrirModal(modais.pesos); abrirModalPeso()">peso</button>
+
+          </div>
+          <!-- botão fechar do modal comprar -->
+          <button id="salvarBtn" class="salvar-btn" onclick="fecharModal(modais.comprar)">SALVAR</button>
+        </div>
+      </div>
+
+
+
+      <!-- modal selecionarprodutos -->
+      <div id="selecionarprodutos" class="selecionarNomes" style="display:none;">
+        <div class="selecionarNomes-content">
+          <h1 class="titulo-compra">Produtos</h1>
+          <div class="tabela-cabecalho-modal">
+            <span>ID</span>
+            <span>Produto</span>
+          </div>
+          <div class="selecionarNomes-lista-peixes selecionar_lista">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- modal selecionarfornecedor -->
+      <div id="selecionarfornecedor" class="selecionarNomes" style="display:none;">
+
+        <div class="selecionarNomes-content">
+          <h1 class="titulo-compra">Fornecedores</h1>
+          <div class="tabela-cabecalho-modal">
+            <span>ID</span>
+            <span>Fornecedor</span>
+          </div>
+
+          <div class="selecionar_lista_fornecedor selecionar_lista">
+            <!-- Exemplo de itens de fornecedor -->
+            <div class="item-fornecedor itemmodal" data-nomefornecedor="Maré Alta Pes.">
+              <span>#001</span>
+              <img src="..\assets\tilapiaImg.png" alt="Maré Alta Pes.">
+              <span>Maré Alta Pes.</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    
+      
+      
+
+      <!-- modal selecionarpeso -->
+      <div id="selecionarpeso" class="selecionarNomes" style="display:none;">
+
+        <div id="selecionarpesobackgrond">
+          <div class="selecionarNomes-content-peso">
+            <h1 class="titulo-compra">Peso</h1>
+            <div class="tabela-cabecalho-peso">
+              <span>Peso</span>
+            </div>
+
+            <div class="selecionar_lista_peso">
+              <!-- Exemplo de itens de peso -->
+              <div class="item-peso itemmodal" data-nomepeso="Tonelada">
+                <span>#001</span>
+                <span>Tonelada</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- MODAL VENDER -->
+        <div id="vend_esto_modal-container">
+          <div class="comp_esto_modal">
+            <h1 class="titulo-compra">VENDER</h1>
+
+          <!-- Cabeçalho do modal vender-->
+          <div class="tabela-cabecalho">
+            <span>ID</span>
+            <span>Produto</span>
+            <span>Cliente</span>
+            <span>Estoque atual</span>
+          </div>
+
+          <!-- Corpo do modal vender -->
+          <div class="tabela-corpo">
+            <span>ID</span>
+            
+            <button id="btnEscolherNome" class="btnEscolher" onclick="abrirModal(modais.produtos); abrirModalProdutos()">produtos</button>
+            <button id="btnEscolherCliente" class="btnEscolher" onclick="abrirModal(modais.clientes); abrirModalClientes() ">clientes</button>
+            <button id="btnEscolherPeso" class="btnEscolher" onclick="abrirModal(modais.pesos); abrirModalPeso(); fecharModal(modais.comprar)">peso</button>
+
+          </div>
+          <!-- botão fechar do modal vender -->
+          <button id="savarBtn" class="salvar-btn" onclick="fecharModal(modais.vender)">SALVAR</button>
+        </div>
+
+        
+          <!--modal selecionarcliente-->
+        <div id="selecionarcliente" class="selecionarNomes" style="display:none;">
+
+          <div class="selecionarNomes-content">
+            <h1 class="titulo-compra">Clientes</h1>
+            <div class="tabela-cabecalho-modal">
+              <span>ID</span>
+              <span>Cliente</span>
+            </div>
+
+            <div class="selecionar_lista_cliente selecionar_lista">
+              <!-- Exemplo de itens de cliente -->
+              <div class="item-cliente itemmodal" data-nomecliente="Restaurante Sabor do Mar">
+                <span>#001</span>
+                <img src="..\assets\tilapiaImg.png" alt="Restaurante Sabor do Mar">
+                <span>Restaurante Sabor do Mar</span>
+              </div>
+
+          </div>
+        </div>
+
+
+        
+
+
     </header>
 
     <!-- Barra de controle -->
@@ -108,10 +257,39 @@
         <button class="filtro-btn fechar-filtro">Fechar</button>
       </div>
     </div>
+    <!-- Overlay Adicionar Produto -->
+<div id="overlayAdicionarProduto" class="overlay" style="display:none;">
+  <div class="adicionar-produto-modal">
+    <h1>Adicionar Produto</h1>
+
+    <div class="form-adicionar-produto">
+      <label>Nome do Produto</label>
+      <input type="text" id="novoProdutoNome" placeholder="Ex: Tilápia" />
+
+      <label>Imagem (URL)</label>
+      <input type="text" id="novoProdutoImg" placeholder="URL da imagem" />
+
+      <label>Status inicial</label>
+      <select id="novoProdutoStatus">
+        <option value="producao">Produção</option>
+        <option value="estoque">Estoque</option>
+        <option value="venda">Venda</option>
+      </select>
+
+      <label>Quantidade</label>
+      <input type="text" id="novoProdutoQuantidade" placeholder="Ex: 1.5 toneladas" />
+    </div>
+
+    <div class="botoes-adicionar-produto">
+      <button class="salvar-btn" onclick="salvarNovoProduto()">Salvar</button>
+      <button class="btn-fechar" onclick="fecharAdicionarProduto()">Cancelar</button>
+    </div>
+  </div>
+</div>
 
     <!-- Botão adicionar -->
     <div class="adicionar-container">
-      <button class="botao-adicionar">
+      <button class="botao-adicionar" onclick="abrirAdicionarProduto()">
         <span>Adicionar novo produto</span>
       </button>
     </div>
