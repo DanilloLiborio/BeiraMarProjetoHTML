@@ -8,37 +8,7 @@
 </head>
 <body onload="carregarSidebar()">
   <!-- AQUI o sidebar será injetado -->
-  <div id="sidebar-container"></div>
-  <div class="sidebar">
-    <div class="Voltar">
-      <img src="Assets/voltar.png" alt="Voltar">
-    </div>
-    <div class="sidebar-logo">
-      <img src="Assets/logobeira.png" /> 
-    </div>
-    <div class="menu-item">
-  <img src="Assets/Group.png" alt="Controle" class="menu-icon">
-  Controle
-</div>
-<div class="menu-item">
-  <img src="Assets/Vector.png" alt="Pedidos" class="menu-icon">
-  Pedidos
-</div>
-<div class="menu-item">
-  <img src="Assets/Vector (1).png" alt="Vendas" class="menu-icon">
-  Vendas
-</div>
-<div class="menu-item">
-  <img src="Assets/Vector (2).png" alt="Relatório" class="menu-icon">
-  Relatório
-</div>
-<div class="menu-item menu-active">
-  <img src="Assets/Vector (3).png" alt="Produção" class="menu-icon">
-  Produção
-</div>
-
-  </div>
-
+ <div id="sidebar-container"></div>
   <div class="content">
     <h1 class="Producao">Produção</h1>
     <p><i>Peixes na produção</i></p>
@@ -109,7 +79,7 @@
         <span>Adicionar novo produto</span>
       </button>
     </div>
-  <script src="..\sidemenu\sideMenu.js"></script>
+
 
   <!-- MODAL PRINCIPAL -->
 <div class="comp_esto_modal-container" id="modalCompra" style="display:none;">
@@ -189,6 +159,7 @@
         <button class="salvar-btn" onclick="fecharModalEtapa()">FECHAR</button>
     </div>
 </div>
+ <script src="../sidemenu/sideMenu.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

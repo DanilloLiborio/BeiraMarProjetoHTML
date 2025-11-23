@@ -63,7 +63,10 @@ function carregarSidebar() {
             <a href="#" onclick="irVendas()"><i class="fa-solid fa-comment-dollar"></i>Vendas</a>
           </li>
           <li class="side_item"><a href="#"><i class="fa-solid fa-clipboard"></i>Relatório</a></li>
-          <li class="side_item"><a href="#"><i class="fa-solid fa-screwdriver-wrench"></i>Produção</a></li>
+          <li class="side_item">
+            <a href="#" onclick="irProd()"><i class="fa-solid fa-comment-dollar"></i>Producao</a>
+          </li>
+         
         </ul>
       </div>
 
@@ -83,3 +86,4 @@ function IrLogin() { window.location.href = "../Login/login.html"; }
 function irCtrl() { window.location.href = "../ControleEstoque/controleEstoque.html"; }
 function irPdd() { window.location.href = "../rastreamento/rastreamento.html"; }
 function irVendas() { window.location.href = "../vendas/vendas.html"; }
+function irProd() { window.location.href = "../TelasProducao/producao.html"; }
