@@ -2,7 +2,7 @@ function carregarSidebar() {
   // ====== Adiciona Font Awesome ======
   if (!document.getElementById("fa-link")) {
     const faLink = document.createElement("link");
-    faLink.id = "fa-link"; // para evitar duplicatas
+    faLink.id = "fa-link";
     faLink.rel = "stylesheet";
     faLink.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css";
     faLink.integrity = "sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==";
@@ -38,7 +38,6 @@ function carregarSidebar() {
       #sidebar.open-sidebar { min-height:15%; }
       .subtitle { color:#515151; font-family:"Roboto",sans-serif; font-size:15px; }
       .text { color:#385C92; font-family:"Roboto",sans-serif; font-style:italic; font-weight:450; font-size:45px; }
-      
     `;
     document.head.appendChild(style);
   }
@@ -53,7 +52,7 @@ function carregarSidebar() {
         </div>
 
         <ul id="side_items">
-          <li class="side_item active">
+          <li class="side_item">
             <a href="#" onclick="irCtrl()"><i class="fa-solid fa-fish"></i>Controle</a>
           </li>
           <li class="side_item">
@@ -66,7 +65,6 @@ function carregarSidebar() {
           <li class="side_item">
             <a href="#" onclick="irProd()"><i class="fa-solid fa-comment-dollar"></i>Producao</a>
           </li>
-         
         </ul>
       </div>
 
@@ -77,13 +75,26 @@ function carregarSidebar() {
   `;
 
   const container = document.getElementById("sidebar-container");
-  if (container) container.innerHTML = sidebarHTML;
-  else console.warn("Elemento #sidebar-container não encontrado!");
+  if (container) {
+    container.innerHTML = sidebarHTML;
+
+    // ====== Ativar item correto dinamicamente ======
+    const currentPath = window.location.pathname;
+    const items = document.querySelectorAll("#side_items .side_item");
+    items.forEach(item => item.classList.remove("active"));
+
+    if (currentPath.includes("controleEstoque.html")) items[0].classList.add("active");
+    else if (currentPath.includes("rastreamento.html")) items[1].classList.add("active");
+    else if (currentPath.includes("vendas.html")) items[2].classList.add("active");
+    else if (currentPath.includes("producao.html")) items[4].classList.add("active");
+  } else {
+    console.warn("Elemento #sidebar-container não encontrado!");
+  }
 }
 
 // ====== FUNÇÕES DE NAVEGAÇÃO ======
-function IrLogin() { window.location.href = "../Login/login.html"; }
-function irCtrl() { window.location.href = "../ControleEstoque/controleEstoque.html"; }
-function irPdd() { window.location.href = "../rastreamento/rastreamento.html"; }
-function irVendas() { window.location.href = "../vendas/vendas.html"; }
-function irProd() { window.location.href = "../TelasProducao/producao.html"; }
+function IrLogin()   { window.location.href = "/Login/login.html"; }
+function irCtrl()    { window.location.href = "/ControleEstoque/controleEstoque.html"; }
+function irPdd()     { window.location.href = "/rastreamento/rastreamento.html"; }
+function irVendas()  { window.location.href = "/Vendas/vendas.html"; }
+function irProd()    { window.location.href = "/TelasProducao/producao.html"; }

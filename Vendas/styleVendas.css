@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* ===== Reset e fontes ===== */
 * {
     margin: 0;
     padding: 0;
@@ -14,10 +15,7 @@ body {
     background-color: rgb(222, 236, 248);
 }
 
-main {
-    padding: 20px;
-}
-
+/* ===== Sidebar ===== */
 #sidebar {
     display: flex;
     flex-direction: column;
@@ -48,7 +46,6 @@ main {
     object-fit: cover;
     border-radius: 80px;
     margin-bottom: 35px;
-
 }
 
 #user_infos {
@@ -67,14 +64,10 @@ main {
     border-radius: 50px 0px 0px 50px;
     padding: 14px;
     cursor: pointer;
-}
-
-.side_item {
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .side_item.active {
-    transition: .5s;
     background-color: #ffffff;
     border-radius: 50px 0px 0px 50px;
 }
@@ -83,9 +76,7 @@ main {
     color: #107CE0;
     font-size: 20px;
     font-weight: 650;
-
 }
-
 
 .side_item:hover:not(.active),
 #logout_btn:hover {
@@ -98,8 +89,6 @@ main {
     align-items: center;
     color: white;
 }
-
-
 
 .side_item a i {
     display: flex;
@@ -127,17 +116,27 @@ main {
     text-align: start;
     cursor: pointer;
     background-color: transparent;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-#sidebar.open-sidebar {
-    min-height: 15%;
+/* ===== Conteúdo principal ===== */
+main.main-content {
+    flex: 1;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-.subtitle {
-    color: #515151;
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
+/* ===== Tabs ===== */
+.tab-content .content {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tab-content .content.show {
+    display: flex;
 }
 
 .text {
@@ -148,112 +147,84 @@ main {
     font-size: 45px;
 }
 
-.content {
-    display: none;
+.subtitle {
+    color: #515151;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
 }
 
-.content.show {
-    display: flex;
-}
-
+/* ===== Card de vendas ===== */
 .quadrado {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 950px;
+    max-width: 95%;
     height: 200px;
-    position: relative;
-    top: 160px;
-    right: 210px;
-    background: rgb(255, 255, 255);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
     border-radius: 15px;
+    padding: 20px 30px;
+    margin: 80px auto 0 auto; /* adiciona 80px de espaço do topo */
+    position: relative;
+    gap: 30px;
 }
-
 .container-texto {
     display: flex;
-    /* ativa flexbox */
     flex-direction: column;
-    /* coloca um elemento abaixo do outro */
     gap: 10px;
-    /* espaço entre h2 e p */
-    width: 300px;
-    /* largura do container */
-    padding: 10px;
-    ;
 }
 
 .titulo {
     font-size: 24px;
-    display: flex;
-    position: relative;
-    top: 30px;
-    left: 160px;
     color: black;
-    margin: 0;
-    /* remove margem padrão do h2 */
 }
 
 .paragrafo {
     font-size: 16px;
-    display: flex;
-    position: relative;
-    top: 20px;
-    left: 160px;
-    color: #D7DF38;
-    margin: 0;
-    /* remove margem padrão do p */
     font-weight: bold;
+    color: #D7DF38;
 }
 
-
-.quadrado .elipsegbarbosa {
-    width: 110px;
-    height: 110px;
-    position: relative;
-    top: 20px;
-    right: 260px;
-}
-
-.quadrado .linha {
-    width: 100%;
-    /* ocupa toda a largura do quadrado */
-    height: 1px;
-    /* espessura da linha */
-    background-color: rgb(151, 151, 151);
-    /* cor da linha */
-    position: absolute;
-    top: 80%;
-    /* centraliza verticalmente */
-    left: 0;
-    /* começa na ponta esquerda */
-    transform: translateY(-50%);
-    /* ajusta exatamente no centro */
-}
-
-.quadrado .textolateral {
-    display: flex;
-    position: relative;
-    left: 780px;
-    top: -40px;
+.textolateral {
+    font-size: 12px;
     color: #515151;
     font-weight: 500;
-    font-size: 12px;
 }
 
+/* ===== Foto do fornecedor ===== */
+.elipsegbarbosa {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ===== Botão de envio ===== */
 .img-button {
     display: flex;
-    width: 90px;
-    height: 28px;
-    position: relative;
-    top: 165px;
-    right: 390px;
     background-color: transparent;
-    border: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-.quadrado .btnporcentagem {
+.img-button img {
+    width: 90px;
+    height: 28px;
+}
+
+/* ===== Botão de porcentagem ===== */
+.btnporcentagem {
     width: 90px;
     height: 19px;
-    position: relative;
-    top: 168px;
-    left: 344px;
+}
+
+/* ===== Linha separadora ===== */
+.linha {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(151,151,151);
+    position: absolute;
+    bottom: 20px;
+    left: 0;
 }
