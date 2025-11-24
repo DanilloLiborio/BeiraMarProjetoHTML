@@ -4,72 +4,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styleVendas.css">
   <title>BEIRA MAR PESCADOS</title>
+  
+  <!-- CSS geral da página -->
+  <link rel="stylesheet" href="styleVendas.css">
+  <!-- CSS do sidebar -->
+  <link rel="stylesheet" href="../sidemenu/sidebar.css">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="carregarSidebar()">
+
   <!-- Sidebar será injetado aqui -->
   <div id="sidebar-container"></div>
 
-  <main class="content">
-    <div class="tab-content">
-      <div class="content show" id="Controle">
-        <div class="infos">
-          <h1 class="text">MINHAS VENDAS</h1>
-          <p class="subtitle">Vendas elaboradas e preparadas</p>
+  <!-- Conteúdo principal -->
+  <div class="container">
+    <main class="content">
+      <div class="tab-content">
+        <div class="content show" id="Controle">
+          <div class="infos">
+            <h1 class="text">MINHAS VENDAS</h1>
+            <p class="subtitle">Vendas elaboradas e preparadas</p>
+          </div>
         </div>
+        <div class="content" id="Pedidos">
+          <div class="infos">
+            <h1 class="text">Pedidos</h1>
+            <p class="subtitle">Produtos atuais</p>
+          </div>
+        </div>
+        <div class="content" id="Vendas">
+          <div class="infos">
+            <h1 class="text">Vendas</h1>
+            <p class="subtitle">Produtos atuais</p>
+          </div>
+        </div>
+        <div class="content" id="Relatório">
+          <div class="infos">
+            <h1 class="text">Relatório</h1>
+            <p class="subtitle">Produtos atuais</p>
+          </div>
+        </div>
+        <div class="content" id="Produção">
+          <div class="infos">
+            <h1 class="text">Produção</h1>
+            <p class="subtitle">Produtos atuais</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Card lateral -->
+    <div class="quadrado">
+      <div class="container-texto">
+        <h2 class="titulo">Gbarbosa</h2>
+        <p class="textolateral">Data prevista: 12/11/2025</p>
+        <p class="paragrafo">Total: 1.5 Toneladas</p>
       </div>
 
-      <div class="content" id="Pedidos">
-        <div class="infos">
-          <h1 class="text">Pedidos</h1>
-          <p class="subtitle">Produtos atuais</p>
-        </div>
-      </div>
+      <img src="./img/Ellipse 16.png" class="elipsegbarbosa" alt="empresafoto">
 
-      <div class="content" id="Vendas">
-        <div class="infos">
-          <h1 class="text">Vendas</h1>
-          <p class="subtitle">Produtos atuais</p>
-        </div>
-      </div>
+      <a href="/Vendas/pagina.html" class="img-button">
+        <img src="./img/btn enviar.png" alt="Botão">
+      </a>
 
-      <div class="content" id="Relatório">
-        <div class="infos">
-          <h1 class="text">Relatório</h1>
-          <p class="subtitle">Produtos atuais</p>
-        </div>
-      </div>
-
-      <div class="content" id="Produção">
-        <div class="infos">
-          <h1 class="text">Produção</h1>
-          <p class="subtitle">Produtos atuais</p>
-        </div>
-      </div>
+      <img src="./img/porcetagem.png" class="btnporcentagem" alt="botaoporcentagem">
+      <div class="linha"></div>
     </div>
-  </main>
-
-  <div class="quadrado">
-    <div class="container-texto">
-      <h2 class="titulo">Gbarbosa</h2>
-      <p class="textolateral">Data prevista: 12/11/2025</p>
-      <p class="paragrafo">Total: 1.5 Toneladas</p>
-    </div>
-
-    <img src="./img/Ellipse 16.png" class="elipsegbarbosa" alt="empresafoto">
-
-    <a href="/Vendas/pagina.html" class="img-button">
-      <img src="./img/btn enviar.png" alt="Botão">
-    </a>
-
-    <img src="./img/porcetagem.png" class="btnporcentagem" alt="botaoporcentagem">
-    <div class="linha"></div>
   </div>
 
+  <!-- JS -->
   <script src="../sidemenu/sideMenu.js"></script>
-  <script src="script.js"></script>
+
 </body>
 
 </html>

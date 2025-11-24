@@ -61,7 +61,7 @@ function carregarSidebar() {
           <li class="side_item">
             <a href="#" onclick="irVendas()"><i class="fa-solid fa-comment-dollar"></i>Vendas</a>
           </li>
-          <li class="side_item"><a href="#"><i class="fa-solid fa-clipboard"></i>Relatório</a></li>
+        
           <li class="side_item">
             <a href="#" onclick="irProd()"><i class="fa-solid fa-comment-dollar"></i>Producao</a>
           </li>
@@ -95,6 +95,6 @@ function carregarSidebar() {
 // ====== FUNÇÕES DE NAVEGAÇÃO ======
 function IrLogin()   { window.location.href = "/Login/login.html"; }
 function irCtrl()    { window.location.href = "/ControleEstoque/controleEstoque.html"; }
-function irPdd()     { window.location.href = "/rastreamento/rastreamento.html"; }
-function irVendas()  { window.location.href = "/Vendas/vendas.html"; }
+function irPdd()     { window.location.href = "/pedidos2/pedidos2.html"; }
+function irVendas()  { window.location.href = "/vendas2/index.html"; }
 function irProd()    { window.location.href = "/TelasProducao/producao.html"; }
