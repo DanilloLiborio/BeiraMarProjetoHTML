@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="carregarSidebar(); carregarPedidos()">
+
+  <!-- Sidebar -->
+  <div id="sidebar-container"></div>
+
+  <!-- Conteúdo principal -->
+  <div class="container">
+    <div class="main">
+      <h1>GERENCIAMENTO DE PEDIDOS:</h1>
+      <p>Administração de pedidos feitos na empresa</p>
+
+      <!-- Pesquisa -->
+     <div class="search-container">
+  <input type="text" id="pesquisar" placeholder="Pesquisar">
+  <button onclick="filtrarPedidos()">Filtrar</button>
+  <button class="btn-track" onclick="irRastreamento()">Rastreamento</button>
+</div>
+      <!-- Tabela de pedidos -->
+      <table id="tabela-pedidos">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fornecedor</th>
+            <th>Produto</th>
+            <th>Qtd.</th>
+            <th>Data de emissão</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas adicionadas via JS -->
+        </tbody>
+      </table>
+
+      <!-- Botão adicionar pedido -->
+      <button class="btn-add" onclick="abrirOverlay()">+ ADICIONAR NOVO PEDIDO</button>
+    </div>
+  </div>
+
+  <!-- Overlay Modal para adicionar pedido -->
+  <div id="overlayPedido" class="overlay">
+    <div class="modal">
+      <h2>Adicionar Pedido</h2>
+      <form id="formPedido">
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente" required>
+
+        <label for="produto">Produto:</label>
+        <input type="text" id="produto" name="produto" required>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" required>
+
+        <div class="botoes">
+          <button type="submit">Adicionar</button>
+          <button type="button" onclick="fecharOverlay()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../sidemenu/sideMenu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styleVendas.css">
+  <title>BEIRA MAR PESCADOS</title>
+</head>
+<body onload="carregarSidebar()">
+  <!-- Sidebar -->
+  <div id="sidebar-container"></div>
+  
+  <div class="container">
+    <div class="tab-content">
+      <div class="content" id="Controle">
+        <div class="infos">
+          <h1 class="text">CONTROLE DE ESTOQUE</h1>
+          <p class="subtitle">Gerencie seu estoque</p>
+        </div>
+      </div>
+      
+      <div class="content" id="Pedidos">
+        <div class="infos">
+          <h1 class="text">Pedidos</h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+      
+      <div class="content show" id="Vendas">
+        <div class="infos">
+          <h1 class="text">MINHAS VENDAS</h1>
+          <p class="subtitle">Vendas elaboradas e preparadas</p>
+        </div>
+
+        <div class="quadrado">
+          <div class="container-texto">
+            <h2 class="titulo">Gbarbosa</h2>
+            <p class="textolateral">Data prevista: 12/11/2025</p>
+            <p class="paragrafo">Total: 1.5 Toneladas</p>
+          </div>
+          
+          <img src="img/Ellipse 16.png" class="elipsegbarbosa" alt="empresafoto">
+          
+          <button class="img-button" id="btnAbrirModal">
+            <img src="img/btn enviar.png" alt="Botão">
+          </button>
+          
+          <img src="img/porcetagem.png" class="btnporcentagem" alt="botaoporcentagem">
+          <div class="linha"></div>
+        </div>
+      </div>
+      
+      <div class="content" id="Relatório">
+        <div class="infos">
+          <h1 class="text">Relatório</h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+      
+      <div class="content" id="Produção">
+        <div class="infos">
+          <h1 class="text">Produção</h1>
+          <p class="subtitle">Produtos atuais</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="modalOverlay" class="modal-overlay"></div>
+
+  <div id="modalJanela" class="modal-janela">
+    <h2>Deseja enviar o pedido?</h2>
+
+    <div class="modal-cliente">
+      <img src="img/Ellipse 16.png" alt="GBarbosa">
+      <div>
+        <h3>GBarbosa</h3>
+        <p>Total: 1,5 toneladas</p>
+      </div>
+    </div>
+
+    <div class="modal-lista">
+      <p>Todos os peixes:</p>
+      <ul>
+        <li>
+          <span>Tilápia</span>
+          <strong>1,0t</strong>
+        </li>
+        <li>
+          <span>Pescada Amarela</span>
+          <strong>0,5t</strong>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal-botoes">
+      <button id="btnModalCancelar" class="btn-cancelar">Cancelar</button>
+      <button id="btnModalEnviar" class="btn-enviar">ENVIAR</button>
+    </div>
+  </div>
+  </div>
+  
+ <script src="../sidemenu/sideMenu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

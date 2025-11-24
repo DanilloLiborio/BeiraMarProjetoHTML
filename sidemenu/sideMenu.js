@@ -95,6 +95,6 @@ function carregarSidebar() {
 // ====== FUNÇÕES DE NAVEGAÇÃO ======
 function IrLogin()   { window.location.href = "/Login/login.html"; }
 function irCtrl()    { window.location.href = "/ControleEstoque/controleEstoque.html"; }
-function irPdd()     { window.location.href = "/pedidos2/pedidos2.html"; }
-function irVendas()  { window.location.href = "/vendas2/index.html"; }
+function irPdd()     { window.location.href = "/pedidos3/pedidos3.html"; }
+function irVendas()  { window.location.href = "/vendas3/vendas3.html"; }
 function irProd()    { window.location.href = "/TelasProducao/producao.html"; }
